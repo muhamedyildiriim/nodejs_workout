@@ -143,3 +143,19 @@ Logger.error("some error message printed in red");
 // export class ... -> import { ... } from './..(.mjs)';
 
 //If we put the default keyword behind any export, we basically say “treat this as the thing every module gets, if it doesn’t ask for something specific”. We can (but are not forced to) import it by leaving out the curly brackets
+
+
+//[GLOBAL] KEYWORD
+// In Node.js, the global object is the top-level object — similar to window in browsers. It represents the global scope of your application, meaning any property attached to global can be accessed from anywhere in your code (any module).
+
+// Browser -> window -> window.alert('Hi!')
+// Node.js -> global -> global.console.log('Hi!')
+// Universal -> globalThis -> globalThis.console.log('Hi!')
+
+// Global variable
+global.username = "Mami";
+console.log(username); // "Mami"
+
+// Global function
+global.sayHello = () => console.log("Hello!");
+sayHello(); // "Hello!"
