@@ -5,7 +5,38 @@
   "description": "Node.js practice covering all core modules and topics",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "_note": "npm install --save-dev npm-run-all / concurrently",
+    
+    "_note_1": "Start the app normally (single command)",
+    "start": "node app.js",
+    "server": "node server.js",
+    "client": "npm start --prefix client",
+
+    "_note_2": "Start API server and run client in parallel (background)",
+    "parallel": "node api/server.js & npm run client",
+
+    "_note_3": "Lint must pass before build starts",
+    "build": "npm run lint && npm run compile",
+
+    "_note_4": "If tests fail, show an error message",
+    "test": "npm run unit || echo 'Tests failed!'",
+
+    "_note_5": "Run cleanup then log message no matter what",
+    "cleanup": "rm -rf dist ; echo '🧹 Cleanup done!'",
+
+    "_note_6": "Run multiple scripts sequentially (one after another)",
+    "sequential_start": "npm-run-all -s build test start",
+
+    "_note_7": "Run multiple scripts in parallel (simultaneously)",
+    "parallel_start": "npm-run-all -p server client",
+
+    "_note_8": "Run all scripts starting with 'dev:' in parallel",
+    "dev:api": "echo 'Starting API service..'",
+    "dev:web": "echo 'Starting Web service..'",
+    "dev": "npm-run-all -p dev:*",
+
+    "_note_9": "Run server and client concurrently with colored logs",
+    "concurrently_parallel": "concurrently \"npm run build\" \"npm run test\""
   },
   "repository": {
     "type": "git",
