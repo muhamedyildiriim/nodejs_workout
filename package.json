@@ -1,6 +1,7 @@
 {
   "name": "nodejs_workout",
   "version": "1.0.0",
+  "type": "module",
   "description": "Node.js practice covering all core modules and topics",
   "main": "app.js",
   "scripts": {
