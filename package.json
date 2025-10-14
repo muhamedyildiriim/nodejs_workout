@@ -1,0 +1,25 @@
+{
+  "name": "nodejs_workout",
+  "version": "1.0.0",
+  "description": "Node.js practice covering all core modules and topics",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhamedyildiriim/nodejs_workout.git"
+  },
+  "keywords": [
+    "nodejs",
+    "practice",
+    "workout",
+    "learning"
+  ],
+  "author": "Muhammed YILDIRIM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muhamedyildiriim/nodejs_workout/issues"
+  },
+  "homepage": "https://github.com/muhamedyildiriim/nodejs_workout#readme"
+}
