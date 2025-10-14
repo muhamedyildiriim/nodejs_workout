@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/muhamedyildiriim/nodejs_workout/issues"
   },
-  "homepage": "https://github.com/muhamedyildiriim/nodejs_workout#readme"
+  "homepage": "https://github.com/muhamedyildiriim/nodejs_workout#readme",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
 }
