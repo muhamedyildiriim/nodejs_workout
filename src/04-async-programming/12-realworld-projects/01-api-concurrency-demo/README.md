@@ -17,5 +17,5 @@ It mimics a typical dashboard endpoint combining user data, permissions, and rec
 
 ## 🚀 How to Run
 ```bash
-node src/04-async-programming/12-realworld-projects/api-concurrency-demo/server.js
+node src/04-async-programming/12-realworld-projects/01-api-concurrency-demo/server.js
 ```
