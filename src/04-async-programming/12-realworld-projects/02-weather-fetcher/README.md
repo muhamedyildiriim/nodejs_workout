@@ -10,5 +10,5 @@ Fetches **live weather data** using `async/await`, validates HTTP status, and re
 
 ## 🚀 How to Run
 ```bash
-node src/04-async-programming/12-realworld-projects/weather-fetcher/weather-fetcher.js
+node src/04-async-programming/12-realworld-projects/02-weather-fetcher/weather-fetcher.js
 ```
