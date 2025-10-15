@@ -5,7 +5,7 @@
  *  - Use streams to handle large files efficiently (constant memory footprint)
  *  - Prefer `stream/promises` pipeline for backpressure-aware piping
  *  - Surface errors with try/catch and fail fast on I/O issues
- * Run: node src/04-async-programming/12-realworld/file-uploader/file-uploader.js
+ * Run: node src/04-async-programming/12-realworld-projects/03-file-uploader/file-uploader.js
  * Expected:
  *  - Copies a sample file into ./uploads/ and logs success; on failure, prints a descriptive error
  */
@@ -26,9 +26,9 @@ async function simulateUpload() {
 
     console.log("📤 Upload started...");
     await pipeline(readStream, writeStream);
-    console.log("✅ Upload completed:", DEST_FILE);
+    console.log("Upload completed:", DEST_FILE);
   } catch (err) {
-    console.error("❌ Upload failed:", err.message);
+    console.error("Upload failed:", err.message);
   }
 }
 
