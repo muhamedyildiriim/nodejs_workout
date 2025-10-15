@@ -10,5 +10,5 @@ Runs multiple **independent HTTP requests** in parallel and aggregates results â
 
 ## ðŸš€ How to Run
 ```bash
-node src/04-async-programming/12-realworld/04-concurrent-requests/concurrent-requests.js
+node src/04-async-programming/12-realworld-projects/04-concurrent-requests/concurrent-requests.js
 ```

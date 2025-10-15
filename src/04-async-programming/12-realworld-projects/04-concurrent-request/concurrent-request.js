@@ -5,7 +5,7 @@
  *  - Use Promise.all to run independent HTTP requests in parallel
  *  - Validate each response; short-circuit on failures
  *  - Consider Promise.allSettled for partial results in dashboards
- * Run: node src/04-async-programming/12-realworld/concurrent-requests/concurrent-requests.js
+ * Run: node src/04-async-programming/12-realworld-projects/04-concurrent-requests/concurrent-requests.js
  * Expected:
  *  - Prints a compact table of selected GitHub user fields or a clear error if any request fails
  */
@@ -29,7 +29,7 @@ async function fetchUsers() {
     const rows = data.map((u) => ({ login: u.login, id: u.id, followers: u.followers }));
     console.table(rows);
   } catch (err) {
-    console.error("❌ Concurrent fetch failed:", err.message);
+    console.error("Concurrent fetch failed:", err.message);
   }
 }
 
