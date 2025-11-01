@@ -24,5 +24,4 @@
 ## How to Run
 Each example is standalone:
 ```bash
-node path/to/file.js
-```
+node src/04-async-programming/12-realworld-projects/01-api-concurrency-demo/server.js
