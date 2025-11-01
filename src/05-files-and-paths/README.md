@@ -33,4 +33,4 @@
 ## How to Run
 Each example is standalone:
 ```bash
-node node src/05-files-and-paths/06-fs-extra/01-fs-extra.js
+node src/05-files-and-paths/05-glob-globby/01-glob-basics.js
