@@ -2,56 +2,49 @@
 
 **Goal:** Provide a "Masterclass" on the **end-to-end engineering** of a modern Node.js API.
 
-This section answers the question: **"How do you build, secure, and connect a production-ready API?"**
+This section answers the "Architect's" question: **"How do you build, secure, connect, and structure a production-ready API?"**
 
-This "Concept House" is built on the principle of **"Separation of Concerns"**. It is divided into the three core responsibilities of any API application.
+It is built on the principle of **"Separation of Concerns"**, ensuring that Server Logic, Security, Data Access, and Views remain decoupled.
 
 ---
 
 ## Structure
 
-This section is organized by "Concept", demonstrating the "trade-offs" between different architectural patterns.
-
 1.  **`01-web-server/`**
     * **Concept:** Building the Server.
-    * **Demonstrates:** This section tells the story of *why* frameworks exist. It contrasts the "pain" of the **raw `http-module`** (manual routing, body parsing) with the "solution" of **`Express.js`** (middleware, routers, `res.json()`).
+    * **Focus:** Contrasts the raw `http-module` (manual routing/parsing pain) with **`Express.js`** (middleware, routers, clean API).
 
 2.  **`02-authentication/`**
-    * **Concept:** Securing the Server.
-    * **Demonstrates:** This section covers the "Tools" (`bcrypt`, `jsonwebtoken`) and the two opposing "Architectures":
-        * **"Stateful":** The "classic" (`passport-local` + `express-session`) cookie-based architecture, and its "scalability" challenges.
-        * **"Stateless":** The "modern" (`passport-jwt`) token-based architecture, the standard for scalable APIs (e.g., Netflix, Uber).
+    * **Concept:** Security Architecture.
+    * **Focus:**
+        * **Stateful:** Cookie-based sessions (`passport-local` + `express-session`).
+        * **Stateless:** Token-based auth (`passport-jwt`), the standard for scalable microservices.
+        * **Tools:** `bcrypt` for hashing, `jsonwebtoken` for signing.
 
 3.  **`03-api-clients/`**
-    * **Concept:** Consuming Other Services.
-    * **Demonstrates:** This section is a **"Trade-Off Analysis"** (Fark Yaratan Analiz) of *how* our server (the "client") should talk to other APIs. It compares:
-        * `native-fetch` (The Baseline)
-        * `axios` (The Classic Standard)
-        * `ky` (The Modern Lightweight)
-        * `got` (The Robust/Retry Choice)
-    * It concludes with the `05-client-abstraction-pattern.js`, the critical pattern for creating a maintainable and testable "Service Layer".
+    * **Concept:** Consuming External Services.
+    * **Focus:** A trade-off analysis of HTTP clients (`fetch`, `axios`, `ky`, `got`) and the critical **"Client Abstraction Pattern"** to decouple external dependencies from business logic.
+
+4.  **`04-database-access/`**
+    * **Concept:** Data Layer Foundation.
+    * **Focus:** Establishing architectural prerequisites *before* DB integration:
+        * **Validation:** Using `zod` for strict schema validation at the entry point.
+        * **Repository Pattern:** Decoupling business logic from specific database drivers (SQL vs NoSQL) via dependency injection.
+
+5.  **`05-template-engines/`**
+    * **Concept:** Server-Side Rendering (SSR).
+    * **Focus:** Generating dynamic HTML on the server using **EJS**. Essential for transactional emails, admin dashboards, and SEO-critical pages.
 
 ---
 
 ## Key Takeaways
 
-* **Solve "Pain" with Frameworks:** The "raw" `http` module is powerful, but `Express.js` is the choice for "robustness" and "maintainability".
-* **Stateful vs. Stateless:** The *most important* security "trade-off". Use **Stateful (`session`)** for simple, "monolithic" web apps. Use **Stateless (`JWT`)** for all modern, "scalable" APIs (Mobile, React, Microservices).
-* **Abstract Your Clients:** *Never* use `axios.get()` directly in 100 different files. "Abstract" it into *one* `apiClient.js` file (the "Abstraction Pattern") to ensure your application is "testable" and "maintainable".
+* **Use Frameworks for Robustness:** `Express.js` solves the brittleness of raw Node.js HTTP handling.
+* **Security Trade-offs:** Choose **Stateless (JWT)** for scalability across multiple servers/mobile apps, and **Stateful (Session)** for simple monolithic web apps.
+* **Abstract External Calls:** Never use HTTP clients directly in controllers. Wrap them in a Service/Client layer.
+* **Validate Early:** "Garbage In, Garbage Out." Always validate input with `zod` before it reaches your domain logic.
+* **Decouple Data Access:** Use the Repository Pattern to keep your code testable and database-agnostic.
 
 ## How to Run
 
-```bash
-# Each section contains its own runnable demos:
-
-# To run the raw "http-module" pain demo:
-node src/03-api-architectures/01-web-server/01-http-module/02-basic-routing.js
-
-# To run the "Express.js" solution demo:
-node src/03-api-architectures/01-web-server/02-express-js/03-express-router.js
-
-# To run the "Stateless" (JWT) auth server:
-node src/03-api-architectures/02-authentication/04-passport-jwt.js
-
-# To run the "Client Abstraction Pattern" demo:
-node src/03-api-architectures/03-api-clients/05-client-abstraction-pattern.js
+Each sub-directory contains standalone demos. Refer to the READMEs inside each folder for specific run instructions.
