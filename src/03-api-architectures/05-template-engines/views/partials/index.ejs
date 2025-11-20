@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <%- include('header') %>
+
+    <h1>Welcome, <%= user.name %>!</h1>
+    
+    <h3>Your Tasks:</h3>
+    <ul>
+        <% if (tasks.length > 0) { %>
+            <% tasks.forEach(function(task) { %>
+                <li><%= task %></li>
+            <% }); %>
+        <% } else { %>
+            <li>No tasks found.</li>
+        <% } %>
+    </ul>
+
+</body>
+</html>
