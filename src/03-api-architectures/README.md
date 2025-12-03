@@ -27,9 +27,11 @@ It is built on the principle of **"Separation of Concerns"**, ensuring that Serv
 
 4.  **`04-database-access/`**
     * **Concept:** Data Layer Foundation.
-    * **Focus:** Establishing architectural prerequisites *before* DB integration:
+    * **Focus:** Establishing architectural prerequisites *before* and *during* DB integration:
         * **Validation:** Using `zod` for strict schema validation at the entry point.
         * **Repository Pattern:** Decoupling business logic from specific database drivers (SQL vs NoSQL) via dependency injection.
+        * **Mongoose (NoSQL):** Implementing Singleton connections, schema-based validation, Async Middleware hooks, and performance optimization (`.lean()`).
+        * **Prisma (SQL):** Implementing Type-Safe ORM, Schema-First design, Nested Writes, and ACID-compliant transactional operations.
 
 5.  **`05-template-engines/`**
     * **Concept:** Server-Side Rendering (SSR).
